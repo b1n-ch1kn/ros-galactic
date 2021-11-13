@@ -1,0 +1,6 @@
+ros-galactic-dwb-plugins
+ros-galactic-dwb-critics
+ros-galactic-nav2-waypoint-follower
+ros-galactic-nav2-smac-planner
+ros-galactic-nav2-dwb-controller
+ros-galactic-navigation2
