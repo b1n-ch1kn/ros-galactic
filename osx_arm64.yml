@@ -1,0 +1,161 @@
+pool:
+  vmImage: macOS-11
+trigger:
+- buildbranch_osx_arm64
+pr: none
+stages:
+- stage: stage_0
+  jobs:
+  - job: stage_0_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-python-qt-binding ros-galactic-libcurl-vendor
+          ros-galactic-rviz-ogre-vendor ros-galactic-rviz-assimp-vendor ros-galactic-angles
+      displayName: Build ros-galactic-python-qt-binding ros-galactic-libcurl-vendor
+        ros-galactic-rviz-ogre-vendor ros-galactic-rviz-assimp-vendor ros-galactic-angles
+  - job: stage_0_job_1
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-teleop-twist-joy ros-galactic-action-tutorials-py
+          ros-galactic-action-tutorials-cpp
+      displayName: Build ros-galactic-teleop-twist-joy ros-galactic-action-tutorials-py
+        ros-galactic-action-tutorials-cpp
+- stage: stage_1
+  jobs:
+  - job: stage_1_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-resource-retriever ros-galactic-qt-gui ros-galactic-qt-gui-py-common
+          ros-galactic-qt-dotgraph
+      displayName: Build ros-galactic-resource-retriever ros-galactic-qt-gui ros-galactic-qt-gui-py-common
+        ros-galactic-qt-dotgraph
+- stage: stage_2
+  jobs:
+  - job: stage_2_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-rviz-rendering ros-galactic-rqt-gui ros-galactic-rqt-py-common
+          ros-galactic-qt-gui-cpp
+      displayName: Build ros-galactic-rviz-rendering ros-galactic-rqt-gui ros-galactic-rqt-py-common
+        ros-galactic-qt-gui-cpp
+- stage: stage_3
+  jobs:
+  - job: stage_3_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-rviz-common ros-galactic-rviz-rendering-tests
+          ros-galactic-rqt-gui-py ros-galactic-rqt-gui-cpp
+      displayName: Build ros-galactic-rviz-common ros-galactic-rviz-rendering-tests
+        ros-galactic-rqt-gui-py ros-galactic-rqt-gui-cpp
+- stage: stage_4
+  jobs:
+  - job: stage_4_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-rviz-visual-testing-framework ros-galactic-rqt-console
+          ros-galactic-rqt-plot ros-galactic-rqt-bag ros-galactic-rqt-topic
+      displayName: Build ros-galactic-rviz-visual-testing-framework ros-galactic-rqt-console
+        ros-galactic-rqt-plot ros-galactic-rqt-bag ros-galactic-rqt-topic
+  - job: stage_4_job_1
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-rqt-image-view ros-galactic-rqt-top ros-galactic-rqt-shell
+          ros-galactic-rqt-service-caller ros-galactic-rqt-py-console
+      displayName: Build ros-galactic-rqt-image-view ros-galactic-rqt-top ros-galactic-rqt-shell
+        ros-galactic-rqt-service-caller ros-galactic-rqt-py-console
+  - job: stage_4_job_2
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-rqt-publisher ros-galactic-rqt-graph
+      displayName: Build ros-galactic-rqt-publisher ros-galactic-rqt-graph
+- stage: stage_5
+  jobs:
+  - job: stage_5_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-rviz-default-plugins ros-galactic-rqt-msg ros-galactic-rqt-reconfigure
+          ros-galactic-rqt-bag-plugins
+      displayName: Build ros-galactic-rviz-default-plugins ros-galactic-rqt-msg ros-galactic-rqt-reconfigure
+        ros-galactic-rqt-bag-plugins
+- stage: stage_6
+  jobs:
+  - job: stage_6_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-rviz2 ros-galactic-rqt-srv ros-galactic-rqt-action
+          ros-galactic-rqt-common-plugins
+      displayName: Build ros-galactic-rviz2 ros-galactic-rqt-srv ros-galactic-rqt-action
+        ros-galactic-rqt-common-plugins
+- stage: stage_7
+  jobs:
+  - job: stage_7_job_0
+    steps:
+    - script: |-
+        export CI=azure
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+        .scripts/build_osx_arm64.sh
+      env:
+        ANACONDA_API_TOKEN: $(ANACONDA_API_TOKEN)
+        CURRENT_RECIPES: ros-galactic-desktop
+      displayName: Build ros-galactic-desktop
